@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- Pill header — background set programmatically via setBackgroundColor -->
+    <LinearLayout
+        android:id="@+id/widget_header_pill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/widget_pill_bg">
+
+        <ImageButton
+            android:id="@+id/widget_btn_prev"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_outline_arrow_left_alt_24"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:contentDescription="Bulan sebelumnya" />
+
+        <TextView
+            android:id="@+id/widget_tv_month_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="13sp" />
+
+        <ImageButton
+            android:id="@+id/widget_btn_next"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_outline_arrow_right_alt_24"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:contentDescription="Bulan berikutnya" />
+
+    </LinearLayout>
+
+    <!-- Rounded card — background set programmatically via setBackgroundColor -->
+    <LinearLayout
+        android:id="@+id/widget_card_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@drawable/widget_card_bg">
+
+        <!-- Day labels -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+
+            <TextView android:id="@+id/widget_label_sen" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sen" android:gravity="center" android:textSize="10sp" />
+            <TextView android:id="@+id/widget_label_sel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sel" android:gravity="center" android:textSize="10sp" />
+            <TextView android:id="@+id/widget_label_rab" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Rab" android:gravity="center" android:textSize="10sp" />
+            <TextView android:id="@+id/widget_label_kam" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Kam" android:gravity="center" android:textSize="10sp" />
+            <TextView android:id="@+id/widget_label_jum" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Jum" android:gravity="center" android:textSize="10sp" />
+            <TextView android:id="@+id/widget_label_sab" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sab" android:gravity="center" android:textSize="10sp" />
+            <TextView android:id="@+id/widget_label_min" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Min" android:gravity="center" android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <!-- Grid -->
+        <GridView
+            android:id="@+id/widget_grid_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="7"
+            android:verticalSpacing="2dp"
+            android:horizontalSpacing="0dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -24,6 +24,7 @@
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
             android:textColor="?attr/colorPrimary"
             android:layout_marginTop="2dp" />

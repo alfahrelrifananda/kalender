@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.R
@@ -13,6 +14,8 @@ import kalender.alfahrel.my.id.model.HolidayType
 
 class HolidayAdapter(private val holidays: List<HolidayInfo>) :
     RecyclerView.Adapter<HolidayAdapter.HolidayVH>() {
+
+    private val interpolator = DecelerateInterpolator()
 
     inner class HolidayVH(view: View) : RecyclerView.ViewHolder(view) {
         val tvDate: TextView = view.findViewById(kalender.alfahrel.my.id.R.id.tvHolidayDate)
@@ -51,6 +54,23 @@ class HolidayAdapter(private val holidays: List<HolidayInfo>) :
                 h.chip.setTextColor(ctx.resolveAttrColor(R.attr.colorOnError))
             }
         }
+
+        h.itemView.alpha = 0f
+        h.itemView.translationY = 60f
+        h.itemView.animate()
+            .alpha(1f)
+            .translationY(0f)
+            .setDuration(350)
+            .setStartDelay(position * 80L)
+            .setInterpolator(interpolator)
+            .start()
+    }
+
+    override fun onViewRecycled(h: HolidayVH) {
+        super.onViewRecycled(h)
+        h.itemView.animate().cancel()
+        h.itemView.alpha = 1f
+        h.itemView.translationY = 0f
     }
 }
 
